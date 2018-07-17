@@ -10,12 +10,7 @@ public class Messages {
 		System.out.println("Welcome to War!");
 		insertPause(500);
 		System.out.println("Press Enter to play...");
-		try {
-			System.in.read();
-		} catch (IOException e) {
-			System.out.println("Goodbye!");
-			System.exit(0);
-		}
+		waitForEnter();
 	}
 
 	public static void printShuffleMessage() {
@@ -31,15 +26,10 @@ public class Messages {
 
 	public static void printFlipMessage(WarCard userCard, WarCard computerCard) {
 		System.out.println("\nPress Enter to flip the next card...");
-		try {
-			System.in.read();
-		} catch (IOException e) {
-			System.out.println("Invalid Input");
-		}
-
+		waitForEnter();
 		System.out.println("You played: " + userCard.getFaceValue() + " of " + userCard.getSuit());
 		insertPause(500);
-		System.out.println("Your opponent played: " + computerCard.getFaceValue() + " of " + computerCard.getSuit());
+		System.out.println("Opponent played: " + computerCard.getFaceValue() + " of " + computerCard.getSuit());
 		insertPause(500);
 
 	}
@@ -76,7 +66,14 @@ public class Messages {
 		} else {
 			System.out.println("You've lost the game. Please try again.");
 		}
-		System.exit(0);
+	}
+	
+	private static void waitForEnter() {
+		try {
+			System.in.read();
+		} catch (IOException e) {
+			System.out.println("Invalid Input");
+		}
 	}
 
 	private static void insertPause(int length) {

@@ -22,6 +22,7 @@ public class WarCardGame {
 			playTrick();
 		}
 		Messages.printEndGameMessage(userIsWinner);
+		System.exit(0);
 	}
 
 	public void shuffle() {
@@ -87,12 +88,12 @@ public class WarCardGame {
 	private void checkForWinner() {
 		if (computerHand.isEmpty()) {
 			hasWinner = true;
-			boolean userIsWinner = true;
+			userIsWinner = true;
 
 		}
 		if (userHand.isEmpty()) {
 			hasWinner = true;
-			boolean userIsWinner = false;
+			userIsWinner = false;
 		}
 	}
 
