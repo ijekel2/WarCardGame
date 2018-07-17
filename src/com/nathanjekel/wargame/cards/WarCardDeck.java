@@ -20,7 +20,7 @@ public class WarCardDeck {
 	}
 
 	public void shuffle() {
-		int randomNum = ThreadLocalRandom.current().nextInt(1, 6);
+		int randomNum = ThreadLocalRandom.current().nextInt(3, 6);
 		for (int i = 0; i < randomNum; i++) {
 			Collections.shuffle(deck);
 

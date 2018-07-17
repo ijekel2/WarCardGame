@@ -26,38 +26,38 @@ public class Messages {
 
 	public static void printFlipMessage(WarCard userCard, WarCard computerCard) {
 		System.out.println("\nPress Enter to flip the next card...");
-		waitForEnter();
+		//waitForEnter();
 		System.out.println("You played: " + userCard.getFaceValue() + " of " + userCard.getSuit());
-		insertPause(500);
+		//insertPause(500);
 		System.out.println("Opponent played: " + computerCard.getFaceValue() + " of " + computerCard.getSuit());
-		insertPause(500);
+		//insertPause(500);
 
 	}
 
 	public static void printWarMessage() {
 		System.out.println("War ensues!");
-		insertPause(500);
+		//insertPause(500);
 		System.out.println("You each place one card face down.");
-		insertPause(500);
+		//insertPause(500);
 
 	}
 
 	public static void printLostTrickMessage() {
 		System.out.println("Your opponent won the trick.\n");
-		insertPause(500);
+		//insertPause(500);
 
 	}
 
 	public static void printWonTrickMessage() {
 		System.out.println("You won the trick.\n");
-		insertPause(500);
+		//insertPause(500);
 
 	}
 
 	public static void printHandSizes(int userHandSize, int computerHandSize) {
 		System.out.println("Your deck: " + userHandSize + " cards");
 		System.out.println("Opponent's deck: " + computerHandSize + " cards");
-		insertPause(500);
+		//insertPause(500);
 	}
 
 	public static void printEndGameMessage(boolean userIsWinner) {
