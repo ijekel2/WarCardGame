@@ -12,7 +12,6 @@ public class WarCardGame {
 	private LinkedList<WarCard> userHand = new LinkedList<>();
 	private LinkedList<WarCard> computerHand = new LinkedList<>();
 	private boolean hasWinner = false;
-	private boolean userIsWinner;
 
 	public void play() {
 		Messages.printWelcomeMessage();
@@ -21,8 +20,6 @@ public class WarCardGame {
 		while (!hasWinner) {
 			playTrick();
 		}
-		Messages.printEndGameMessage(userIsWinner);
-		System.exit(0);
 	}
 
 	public void shuffle() {
@@ -49,7 +46,6 @@ public class WarCardGame {
 		// Each player flips a card
 		WarCard userCard = userHand.poll();
 		WarCard computerCard = computerHand.poll();
-		checkForWinner();
 
 		Messages.printFlipMessage(userCard, computerCard);
 
@@ -62,6 +58,7 @@ public class WarCardGame {
 			computerHand.addAll(pot);
 			Messages.printLostTrickMessage();
 			Messages.printHandSizes(userHand.size(), computerHand.size());
+			checkForWinner();
 			return;
 		}
 
@@ -69,6 +66,7 @@ public class WarCardGame {
 			userHand.addAll(pot);
 			Messages.printWonTrickMessage();
 			Messages.printHandSizes(userHand.size(), computerHand.size());
+			checkForWinner();
 			return;
 		}
 
@@ -88,12 +86,12 @@ public class WarCardGame {
 	private void checkForWinner() {
 		if (computerHand.isEmpty()) {
 			hasWinner = true;
-			userIsWinner = true;
-
-		}
-		if (userHand.isEmpty()) {
+			boolean userIsWinner = true;
+			Messages.printEndGameMessage(userIsWinner);
+		} else if (userHand.isEmpty()) {
 			hasWinner = true;
-			userIsWinner = false;
+			boolean userIsWinner = false;
+			Messages.printEndGameMessage(userIsWinner);
 		}
 	}
 

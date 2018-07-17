@@ -2,7 +2,6 @@ package com.nathanjekel.wargame.cards;
 
 import java.util.Collections;
 import java.util.Stack;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class WarCardDeck {
 
@@ -20,12 +19,8 @@ public class WarCardDeck {
 	}
 
 	public void shuffle() {
-		int randomNum = ThreadLocalRandom.current().nextInt(3, 6);
-		for (int i = 0; i < randomNum; i++) {
-			Collections.shuffle(deck);
-
-		}
-	}
+		Collections.shuffle(deck);
+    }
 
 	public WarCard draw() {
 		return deck.pop();
